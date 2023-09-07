@@ -1,4 +1,4 @@
-package com.bookish.ui.theme
+package com.bookish.provider.theme
 
 import androidx.compose.ui.graphics.Color
 
