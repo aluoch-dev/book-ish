@@ -1,4 +1,4 @@
-package com.bookish.provider.theme
+package com.bookish.app.ui.theme
 
 import android.app.Activity
 import android.os.Build
