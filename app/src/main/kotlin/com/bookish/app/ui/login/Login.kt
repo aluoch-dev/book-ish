@@ -1,5 +1,6 @@
 package com.bookish.app.ui.login
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -11,8 +12,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.bookish.R
 import com.bookish.app.ui.elements.Input
 import com.bookish.app.ui.theme.linkTextStyle
 
@@ -24,11 +28,24 @@ fun Login(
 ) {
     Column (
         modifier = Modifier
-        .padding(16.dp)
-        .fillMaxWidth(),
+            .padding(16.dp)
+            .fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
+        Image(
+            painter = painterResource(id = R.drawable.books),
+            contentDescription = stringResource(id = R.string.stack_books)
+        )
+        Spacer(modifier = Modifier.padding(16.dp))
+        Text(
+            text = "Welcome again. Please log in to proceed!"
+        )
+        Spacer(modifier = Modifier.padding(16.dp))
+        Text(
+            text = "Login")
+        Spacer(modifier = Modifier.padding(16.dp))
+
         Input(
             value = username,
             onValueChange = {}

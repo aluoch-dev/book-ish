@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">bookish</string>
     <string name="value_is_required">Field value is required!</string>
+    <string name="stack_books">Stack of books</string>
 </resources>

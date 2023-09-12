@@ -80,7 +80,7 @@ fun linkTextStyle(): TextStyle {
 }
 
 val inputFieldsModifiers = Modifier
-    .background(primaryWhite, roundedCorners)
+    .background(primaryWhite, midRoundedCorners)
     .fillMaxWidth()
     .padding(top = 2.dp)
     .heightIn(min = 60.dp)
