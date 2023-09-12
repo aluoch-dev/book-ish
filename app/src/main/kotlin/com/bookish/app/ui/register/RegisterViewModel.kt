@@ -1,8 +1,12 @@
 package com.bookish.app.ui.register
 
+import android.widget.Toast
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.bookish.app.domain.model.service.AccountService
+import com.bookish.app.ui.isValidEmail
+import com.bookish.app.ui.isValidPassword
+import com.bookish.app.ui.passwordMatches
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -17,6 +21,9 @@ class RegisterViewModel {
     private val password
         get() = uiState.value.password
 
+    private val isError
+        get() = uiState.value.isError
+
     fun onEmailChange(newValue: String) {
         uiState.value = uiState.value.copy(email = newValue)
     }
@@ -30,6 +37,12 @@ class RegisterViewModel {
     }
 
     fun onClickRegister() {
+        if (!email.isValidEmail() || !password.isValidPassword() || !password.passwordMatches(uiState.value.confirmPassword)) {
+           uiState.value.isError = true
+            return
+        } else {
+            //proceed to register
+        }
 
     }
 }

@@ -81,6 +81,17 @@ fun linkTextStyle(): TextStyle {
     )
 }
 
+@Composable
+fun errorTextStyle(): TextStyle {
+    return TextStyle(
+        color = primaryRed,
+        textAlign = TextAlign.Center,
+        fontSize = 16.sp,
+        fontFamily = nunitoFamily,
+        fontWeight = FontWeight(700)
+    )
+}
+
 fun inputFieldModifiers(): Modifier {
     return Modifier
         .background(primaryWhite, midRoundedCorners)
