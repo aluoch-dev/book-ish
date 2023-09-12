@@ -1,6 +1,7 @@
 package com.bookish.app.ui.theme
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
@@ -84,3 +85,8 @@ val inputFieldsModifiers = Modifier
     .fillMaxWidth()
     .padding(top = 2.dp)
     .heightIn(min = 60.dp)
+
+val screenModifier = Modifier
+    .fillMaxWidth()
+    .fillMaxHeight()
+    .padding(32.dp)

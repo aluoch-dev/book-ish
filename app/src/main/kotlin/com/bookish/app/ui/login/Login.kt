@@ -39,11 +39,12 @@ fun Login(
         )
         Spacer(modifier = Modifier.padding(16.dp))
         Text(
-            text = "Welcome again. Please log in to proceed!"
+            text = stringResource(R.string.welcome_again)
         )
         Spacer(modifier = Modifier.padding(16.dp))
         Text(
-            text = "Login")
+            text = stringResource(R.string.login)
+        )
         Spacer(modifier = Modifier.padding(16.dp))
 
         Input(
