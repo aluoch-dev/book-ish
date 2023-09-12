@@ -1,6 +1,5 @@
 package com.bookish
 
-
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -25,14 +24,9 @@ class BookishActivity : ComponentActivity() {
 
         WindowCompat.setDecorFitsSystemWindows(window, false)
         setContent {
-            Surface (
-                modifier = screenModifier
-            ){
-                BookishTheme {
-                    BookishApp()
-                }
+            BookishTheme {
+                BookishApp()
             }
-
         }
     }
 }
