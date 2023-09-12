@@ -4,4 +4,8 @@
     <string name="stack_books">Stack of books</string>
     <string name="welcome_again">Welcome again. Please log in to proceed!</string>
     <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="username">Username</string>
 </resources>

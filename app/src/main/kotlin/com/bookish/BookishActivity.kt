@@ -17,16 +17,16 @@ import com.bookish.app.presentation.BookishApp
 import com.bookish.app.ui.theme.BookishTheme
 import com.bookish.app.ui.theme.primaryCharcoal
 import com.bookish.app.ui.theme.screenModifier
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class BookishActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         WindowCompat.setDecorFitsSystemWindows(window, false)
         setContent {
-            BookishTheme {
-                BookishApp()
-            }
+            BookishApp()
         }
     }
 }

@@ -17,7 +17,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.bookish.R
-import com.bookish.app.ui.elements.Input
 import com.bookish.app.ui.theme.linkTextStyle
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -47,15 +46,9 @@ fun Login(
         )
         Spacer(modifier = Modifier.padding(16.dp))
 
-        Input(
-            value = username,
-            onValueChange = {}
-        )
+
         Spacer(modifier = Modifier.padding(16.dp))
-        Input(
-            value = passWord,
-            onValueChange = {}
-        )
+
         Text(
             text = "Not yet registered? Create an account here",
             style = linkTextStyle()

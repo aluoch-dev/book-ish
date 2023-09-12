@@ -80,13 +80,17 @@ fun linkTextStyle(): TextStyle {
     )
 }
 
-val inputFieldsModifiers = Modifier
-    .background(primaryWhite, midRoundedCorners)
-    .fillMaxWidth()
-    .padding(top = 2.dp)
-    .heightIn(min = 60.dp)
+fun inputFieldModifiers(): Modifier {
+    return Modifier
+        .background(primaryWhite, midRoundedCorners)
+        .fillMaxWidth()
+        .padding(top = 2.dp)
+        .heightIn(min = 60.dp)
+}
 
-val screenModifier = Modifier
-    .fillMaxWidth()
-    .fillMaxHeight()
-    .padding(32.dp)
+fun screenModifier(): Modifier {
+    return Modifier
+        .fillMaxWidth()
+        .fillMaxHeight()
+        .padding(32.dp)
+}
