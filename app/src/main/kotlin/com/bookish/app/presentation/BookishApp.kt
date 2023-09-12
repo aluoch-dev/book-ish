@@ -8,6 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.bookish.app.ui.home.HomeScreen
+import com.bookish.app.ui.login.Login
 
 @Composable
 fun BookishApp() {
@@ -21,9 +22,9 @@ fun BookishApp() {
 fun BookishNavHost(
     navController: NavHostController
 ) {
-    NavHost(navController = navController, startDestination = "home") {
-        composable("home") {
-            HomeScreen()
+    NavHost(navController = navController, startDestination = "login") {
+        composable("login") {
+            Login(username = "username", passWord = "password")
         }
     }
 }
