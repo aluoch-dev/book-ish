@@ -1,13 +1,13 @@
 package com.bookish.app.presentation
 
-import android.app.Activity
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.bookish.app.ui.home.HomeScreen
+import com.bookish.app.ui.login.Login
+import com.bookish.app.ui.register.Register
+import com.bookish.app.ui.register.RegisterViewModel
 
 @Composable
 fun BookishApp() {
@@ -21,9 +21,9 @@ fun BookishApp() {
 fun BookishNavHost(
     navController: NavHostController
 ) {
-    NavHost(navController = navController, startDestination = "home") {
-        composable("home") {
-            HomeScreen()
+    NavHost(navController = navController, startDestination = "register") {
+        composable("register") {
+           Register(viewModel = RegisterViewModel())
         }
     }
 }
