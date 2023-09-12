@@ -1,16 +1,19 @@
 package com.bookish.app.ui.login
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.bookish.app.ui.theme.inputFieldTextStyle
+import com.bookish.app.ui.elements.Input
 import com.bookish.app.ui.theme.linkTextStyle
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -19,30 +22,35 @@ fun Login(
     username: String,
     passWord: String
 ) {
-    Card(
+    Column (
         modifier = Modifier
-            .fillMaxWidth()
-            .padding(16.dp)
+        .padding(16.dp)
+        .fillMaxWidth(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
     ) {
-        Column {
-            TextField(
-                value = username,
-                onValueChange = {username},
-                textStyle = inputFieldTextStyle()
-            )
-
-            TextField(
-                value = passWord ,
-                onValueChange ={ passWord},
-                textStyle = inputFieldTextStyle()
-            )
-
-            Text(
-                text = "Not yet registered? Create an account here",
-                style = linkTextStyle()
-            )
-        }
-
+        Input(
+            value = username,
+            onValueChange = {}
+        )
+        Spacer(modifier = Modifier.padding(16.dp))
+        Input(
+            value = passWord,
+            onValueChange = {}
+        )
+        Text(
+            text = "Not yet registered? Create an account here",
+            style = linkTextStyle()
+        )
     }
+}
+
+@Composable
+@Preview(showBackground = true)
+fun PreviewLogin() {
+    Login(
+        username = "Laurie",
+        passWord = "password"
+    )
 
 }
