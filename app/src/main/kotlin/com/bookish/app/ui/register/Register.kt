@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.bookish.R
 import com.bookish.app.ui.DefaultSpacer
+import com.bookish.app.ui.elements.BasicButton
 import com.bookish.app.ui.elements.ConfirmPasswordField
 import com.bookish.app.ui.elements.PasswordField
 import com.bookish.app.ui.elements.EmailField
@@ -43,7 +44,6 @@ fun Register(
         DefaultSpacer()
         ConfirmPasswordField(uiState.confirmPassword, viewModel::onConfirmPasswordChange)
         DefaultSpacer()
-        Button(onClick = {}) {
-        }
+        BasicButton(text = R.string.register, viewModel::onClickRegister)
     }
 }

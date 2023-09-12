@@ -28,4 +28,8 @@ class RegisterViewModel {
     fun onConfirmPasswordChange(newValue: String) {
         uiState.value = uiState.value.copy(confirmPassword = newValue)
     }
+
+    fun onClickRegister() {
+
+    }
 }

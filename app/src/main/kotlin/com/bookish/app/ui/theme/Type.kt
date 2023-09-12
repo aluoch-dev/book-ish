@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -94,3 +95,12 @@ fun screenModifier(): Modifier {
         .fillMaxHeight()
         .padding(32.dp)
 }
+
+fun basicButtonModifier() : Modifier {
+    return Modifier
+        .padding(16.dp)
+        .background(Pink40, roundedCorners)
+        .heightIn(min = 60.dp)
+        .widthIn(min = 240.dp)
+}
+

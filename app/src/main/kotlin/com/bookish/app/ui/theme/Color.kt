@@ -1,8 +1,11 @@
 package com.bookish.app.ui.theme
 
+import androidx.compose.material3.ButtonColors
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.TextFieldColors
 import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
@@ -35,3 +38,24 @@ fun inputTextFieldDefaultColors(): TextFieldColors {
         unfocusedIndicatorColor = transparent
     )
 }
+
+
+@Composable
+fun textButtonDefaultColors(): ButtonColors {
+    return ButtonDefaults.buttonColors(
+    contentColor = primaryCharcoal
+    )
+}
+
+@Composable
+fun basicButtonDefaultColors(): ButtonColors {
+    return ButtonDefaults.buttonColors(
+        containerColor = Pink80,
+        contentColor = primaryCharcoal,
+        disabledContainerColor = Pink40,
+        disabledContentColor = primaryCharcoal
+
+    )
+}
+
+
