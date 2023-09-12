@@ -10,6 +10,8 @@ import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.bookish.app.ui.theme.inputFieldTextStyle
+import com.bookish.app.ui.theme.linkTextStyle
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -23,11 +25,22 @@ fun Login(
             .padding(16.dp)
     ) {
         Column {
-            TextField(value = username, onValueChange = {username} )
+            TextField(
+                value = username,
+                onValueChange = {username},
+                textStyle = inputFieldTextStyle()
+            )
 
-            TextField(value = passWord , onValueChange ={ passWord} )
+            TextField(
+                value = passWord ,
+                onValueChange ={ passWord},
+                textStyle = inputFieldTextStyle()
+            )
 
-            Text(text = "Not yer registered? Create an account here")
+            Text(
+                text = "Not yet registered? Create an account here",
+                style = linkTextStyle()
+            )
         }
 
     }
