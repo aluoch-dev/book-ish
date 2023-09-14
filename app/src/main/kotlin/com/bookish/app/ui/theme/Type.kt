@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.ExperimentalTextApi
 import androidx.compose.ui.text.TextStyle
@@ -149,8 +150,6 @@ fun contentTextStyle(): TextStyle {
 
 fun contentBoxModifier() : Modifier {
     return Modifier
-        .padding(16.dp)
-        .background(Pink40, roundedCorners)
-        .heightIn(min = 120.dp)
-        .widthIn(min = 240.dp)
+        .padding(32.dp)
+        .background(PurpleGrey80, smallRoundedCorners)
 }
