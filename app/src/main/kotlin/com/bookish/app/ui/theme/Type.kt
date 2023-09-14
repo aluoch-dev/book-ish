@@ -106,7 +106,6 @@ fun screenModifier(): Modifier {
     return Modifier
         .fillMaxWidth()
         .fillMaxHeight()
-        .padding(32.dp)
 }
 
 fun basicButtonModifier() : Modifier {
