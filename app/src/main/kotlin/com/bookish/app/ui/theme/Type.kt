@@ -49,7 +49,6 @@ val Typography = Typography(
     )
 )
 
-@OptIn(ExperimentalTextApi::class)
 val nunitoFamily = FontFamily(
     Font(R.font.nunito_light, FontWeight.Light),
     Font(R.font.nunito_regular, FontWeight.Normal),
@@ -71,6 +70,7 @@ fun inputFieldTextStyle(): TextStyle {
         letterSpacing = 0.sp,
     )
 }
+
 @Composable
 fun linkTextStyle(): TextStyle {
     return TextStyle(
@@ -123,4 +123,35 @@ fun Modifier.dropdownSelector(): Modifier {
 
 fun Modifier.card(): Modifier {
     return this.padding(16.dp, 0.dp, 16.dp, 8.dp)
+}
+
+@Composable
+fun titleTextStyle(): TextStyle {
+    return TextStyle(
+        color = primaryCharcoal,
+        textAlign = TextAlign.Center,
+        fontSize = 16.sp,
+        fontFamily = nunitoFamily,
+        fontWeight = FontWeight(800)
+    )
+}
+
+
+@Composable
+fun contentTextStyle(): TextStyle {
+    return TextStyle(
+        color = primaryCharcoal,
+        textAlign = TextAlign.Center,
+        fontSize = 14.sp,
+        fontFamily = nunitoFamily,
+        fontWeight = FontWeight(700)
+    )
+}
+
+fun contentBoxModifier() : Modifier {
+    return Modifier
+        .padding(16.dp)
+        .background(Pink40, roundedCorners)
+        .heightIn(min = 120.dp)
+        .widthIn(min = 240.dp)
 }

@@ -7,7 +7,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.bookish.app.ui.theme.contentTextStyle
 import com.bookish.app.ui.theme.errorTextStyle
+import com.bookish.app.ui.theme.titleTextStyle
 
 @Composable
 fun DefaultSpacer() {
@@ -22,5 +24,25 @@ fun ErrorText() {
     Text(
         text = "Rectify the Error to Proceed!",
         style = errorTextStyle()
+    )
+}
+
+@Composable
+fun TitleText(
+    text: String
+) {
+    Text(
+        text = text,
+        style = titleTextStyle()
+    )
+}
+
+@Composable
+fun ContentText(
+    text: String
+) {
+    Text(
+        text = text,
+        style = contentTextStyle()
     )
 }

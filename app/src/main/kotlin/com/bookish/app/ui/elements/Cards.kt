@@ -131,7 +131,7 @@ fun DropdownSelector(
 @Composable
 private fun dropdownColors(): TextFieldColors {
     return ExposedDropdownMenuDefaults.textFieldColors(
-        containerColor = MaterialTheme.colorScheme.onPrimary,
+       // containerColor = MaterialTheme.colorScheme.onPrimary,
         focusedIndicatorColor = Color.Transparent,
         unfocusedIndicatorColor = Color.Transparent,
         focusedTrailingIconColor = MaterialTheme.colorScheme.onSurface,

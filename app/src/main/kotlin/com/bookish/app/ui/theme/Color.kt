@@ -26,10 +26,10 @@ val primaryCharcoal = Color(0xFF252525)
 @Composable
 fun inputTextFieldDefaultColors(): TextFieldColors {
     return TextFieldDefaults.textFieldColors(
-        textColor = primaryCharcoal,
+        //textColor = primaryCharcoal,
         cursorColor = Pink80,
         errorCursorColor = primaryRed,
-        placeholderColor =  primaryCharcoal,
+        //placeholderColor =  primaryCharcoal,
         focusedLabelColor = primaryCharcoal,
         unfocusedLabelColor = primaryCharcoal,
         errorLeadingIconColor = primaryRed,
