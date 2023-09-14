@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -115,3 +117,10 @@ fun basicButtonModifier() : Modifier {
         .widthIn(min = 240.dp)
 }
 
+fun Modifier.dropdownSelector(): Modifier {
+    return this.fillMaxWidth()
+}
+
+fun Modifier.card(): Modifier {
+    return this.padding(16.dp, 0.dp, 16.dp, 8.dp)
+}

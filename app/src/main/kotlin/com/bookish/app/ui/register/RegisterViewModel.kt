@@ -1,15 +1,9 @@
 package com.bookish.app.ui.register
 
-import android.widget.Toast
 import androidx.compose.runtime.mutableStateOf
-import androidx.lifecycle.ViewModel
-import com.bookish.app.domain.model.service.AccountService
 import com.bookish.app.ui.isValidEmail
 import com.bookish.app.ui.isValidPassword
 import com.bookish.app.ui.passwordMatches
-import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
-
 
 class RegisterViewModel {
     var uiState = mutableStateOf(RegisterUiState())
@@ -41,7 +35,8 @@ class RegisterViewModel {
            uiState.value.isError = true
             return
         } else {
-            //proceed to register
+
+        //proceed with registration
         }
 
     }

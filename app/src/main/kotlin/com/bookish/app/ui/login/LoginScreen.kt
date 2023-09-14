@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -21,10 +20,7 @@ import com.bookish.app.ui.theme.linkTextStyle
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Login(
-    username: String,
-    passWord: String
-) {
+fun LoginScreen() {
     Column (
         modifier = Modifier
             .padding(16.dp)
@@ -58,10 +54,7 @@ fun Login(
 
 @Composable
 @Preview(showBackground = true)
-fun PreviewLogin() {
-    Login(
-        username = "Laurie",
-        passWord = "password"
-    )
+fun PreviewLoginScreen() {
+    LoginScreen()
 
 }
