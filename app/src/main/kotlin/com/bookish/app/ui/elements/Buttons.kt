@@ -67,3 +67,8 @@ fun DialogCancelButton(@StringRes text: Int, action: () -> Unit) {
         Text(text = stringResource(text))
     }
 }
+
+@Composable
+fun IconButton() {
+
+}
