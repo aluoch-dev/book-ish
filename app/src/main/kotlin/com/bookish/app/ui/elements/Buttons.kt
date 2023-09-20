@@ -3,6 +3,7 @@ package com.bookish.app.ui.elements
 import androidx.annotation.StringRes
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -37,4 +38,37 @@ fun BasicButton(
     ) {
         Text(text = stringResource(text), fontSize = 16.sp)
     }
+}
+
+@Composable
+fun DialogConfirmButton(@StringRes text: Int, action: () -> Unit) {
+    Button(
+        onClick = action,
+        colors =
+        ButtonDefaults.buttonColors(
+            containerColor = MaterialTheme.colorScheme.primary,
+            contentColor = MaterialTheme.colorScheme.onPrimary
+        )
+    ) {
+        Text(text = stringResource(text))
+    }
+}
+
+@Composable
+fun DialogCancelButton(@StringRes text: Int, action: () -> Unit) {
+    Button(
+        onClick = action,
+        colors =
+        ButtonDefaults.buttonColors(
+            containerColor = MaterialTheme.colorScheme.onPrimary,
+            contentColor = MaterialTheme.colorScheme.primary
+        )
+    ) {
+        Text(text = stringResource(text))
+    }
+}
+
+@Composable
+fun IconButton() {
+
 }

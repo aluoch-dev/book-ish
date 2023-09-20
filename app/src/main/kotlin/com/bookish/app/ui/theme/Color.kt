@@ -5,6 +5,8 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.TextFieldColors
 import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.material3.TopAppBarColors
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
@@ -24,10 +26,10 @@ val primaryCharcoal = Color(0xFF252525)
 @Composable
 fun inputTextFieldDefaultColors(): TextFieldColors {
     return TextFieldDefaults.textFieldColors(
-        textColor = primaryCharcoal,
+        //textColor = primaryCharcoal,
         cursorColor = Pink80,
         errorCursorColor = primaryRed,
-        placeholderColor =  primaryCharcoal,
+        //placeholderColor =  primaryCharcoal,
         focusedLabelColor = primaryCharcoal,
         unfocusedLabelColor = primaryCharcoal,
         errorLeadingIconColor = primaryRed,
@@ -50,12 +52,25 @@ fun textButtonDefaultColors(): ButtonColors {
 @Composable
 fun basicButtonDefaultColors(): ButtonColors {
     return ButtonDefaults.buttonColors(
-        containerColor = Pink80,
+        containerColor = Pink40,
         contentColor = primaryCharcoal,
         disabledContainerColor = Pink40,
         disabledContentColor = primaryCharcoal
 
     )
 }
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun topAppBarDefaultColors(): TopAppBarColors {
+    return TopAppBarDefaults.centerAlignedTopAppBarColors(
+        containerColor = Pink40,
+        navigationIconContentColor = primaryCharcoal,
+        scrolledContainerColor = Pink80,
+        titleContentColor = primaryCharcoal,
+        actionIconContentColor = primaryCharcoal
+    )
+}
+
 
 

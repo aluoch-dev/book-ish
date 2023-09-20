@@ -13,7 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.view.WindowCompat
-import com.bookish.app.presentation.BookishApp
+import com.bookish.BookishApp
 import com.bookish.app.ui.theme.BookishTheme
 import com.bookish.app.ui.theme.primaryCharcoal
 import com.bookish.app.ui.theme.screenModifier

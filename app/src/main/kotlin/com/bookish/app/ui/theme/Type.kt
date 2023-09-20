@@ -6,9 +6,12 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.ExperimentalTextApi
 import androidx.compose.ui.text.TextStyle
@@ -47,7 +50,6 @@ val Typography = Typography(
     )
 )
 
-@OptIn(ExperimentalTextApi::class)
 val nunitoFamily = FontFamily(
     Font(R.font.nunito_light, FontWeight.Light),
     Font(R.font.nunito_regular, FontWeight.Normal),
@@ -69,6 +71,7 @@ fun inputFieldTextStyle(): TextStyle {
         letterSpacing = 0.sp,
     )
 }
+
 @Composable
 fun linkTextStyle(): TextStyle {
     return TextStyle(
@@ -78,6 +81,17 @@ fun linkTextStyle(): TextStyle {
         fontFamily = nunitoFamily,
         fontWeight = FontWeight(700),
         textDecoration = TextDecoration.Underline
+    )
+}
+
+@Composable
+fun errorTextStyle(): TextStyle {
+    return TextStyle(
+        color = primaryRed,
+        textAlign = TextAlign.Center,
+        fontSize = 16.sp,
+        fontFamily = nunitoFamily,
+        fontWeight = FontWeight(700)
     )
 }
 
@@ -93,7 +107,6 @@ fun screenModifier(): Modifier {
     return Modifier
         .fillMaxWidth()
         .fillMaxHeight()
-        .padding(32.dp)
 }
 
 fun basicButtonModifier() : Modifier {
@@ -104,3 +117,39 @@ fun basicButtonModifier() : Modifier {
         .widthIn(min = 240.dp)
 }
 
+fun Modifier.dropdownSelector(): Modifier {
+    return this.fillMaxWidth()
+}
+
+fun Modifier.card(): Modifier {
+    return this.padding(16.dp, 0.dp, 16.dp, 8.dp)
+}
+
+@Composable
+fun titleTextStyle(): TextStyle {
+    return TextStyle(
+        color = primaryCharcoal,
+        textAlign = TextAlign.Center,
+        fontSize = 16.sp,
+        fontFamily = nunitoFamily,
+        fontWeight = FontWeight(800)
+    )
+}
+
+
+@Composable
+fun contentTextStyle(): TextStyle {
+    return TextStyle(
+        color = primaryCharcoal,
+        textAlign = TextAlign.Center,
+        fontSize = 14.sp,
+        fontFamily = nunitoFamily,
+        fontWeight = FontWeight(700)
+    )
+}
+
+fun contentBoxModifier() : Modifier {
+    return Modifier
+        .padding(32.dp)
+        .background(PurpleGrey80, smallRoundedCorners)
+}
