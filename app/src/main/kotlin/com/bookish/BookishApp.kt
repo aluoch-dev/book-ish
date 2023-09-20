@@ -3,20 +3,16 @@ package com.bookish
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
-import androidx.compose.material.Snackbar
-import androidx.compose.material.SnackbarHost
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.modifier.modifierLocalProvider
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.bookish.app.ui.content.ContentScreen
-import com.bookish.app.ui.elements.BottomAppBarExample
 import com.bookish.app.ui.elements.BottomBarNavigation
+import com.bookish.app.ui.home.HomeScreen
 import com.bookish.app.ui.theme.screenModifier
 
 
@@ -45,7 +41,10 @@ fun BookishApp() {
 fun BookishNavHost(
     navController: NavHostController
 ) {
-    NavHost(navController = navController, startDestination = "content") {
+    NavHost(navController = navController, startDestination = "home") {
+        composable("home") {
+            HomeScreen()
+        }
         composable("content") {
            ContentScreen()
         }
