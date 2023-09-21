@@ -33,8 +33,8 @@ fun HomeScreen() {
     ) {
         TitleText(text = "My Library")
         DefaultSpacer()
-        BookItem()
-        BookItem()
+
+        //Introduce a scrollable list once the storage is set up
         BookItem()
         BookItem()
         BookItem()
