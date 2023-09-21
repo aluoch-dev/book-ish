@@ -6,9 +6,11 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.IconButton
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.rounded.Edit
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
@@ -31,18 +33,12 @@ fun HomeScreen() {
     ) {
         TitleText(text = "My Library")
         DefaultSpacer()
-        Row() {
-            BookItem()
-            BookItem()
-        }
-        Row() {
-            BookItem()
-            BookItem()
-        }
-        Row() {
-            BookItem()
-            BookItem()
-        }
+        BookItem()
+        BookItem()
+        BookItem()
+        BookItem()
+        BookItem()
+        BookItem()
     }
 }
 
@@ -55,15 +51,18 @@ fun BookItem() {
         ),
         modifier = Modifier
             .padding(16.dp)
+            .fillMaxWidth()
     ) {
-        Image(
-            painter = painterResource(bookImage),
-            contentDescription = " background image"
-        )
         Row(
-            horizontalArrangement = Arrangement.SpaceBetween
+            modifier =Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
         ) {
-           Column() {
+           Column(
+               horizontalAlignment = Alignment.Start
+           ) {
                Text(
                    text = "The Little Prince",
                    modifier = Modifier
@@ -71,9 +70,11 @@ fun BookItem() {
                    textAlign = TextAlign.Center,
                )
            }
-            Column() {
+            Column(
+                horizontalAlignment = Alignment.End
+            ) {
                 IconButton(onClick = { /* do something */ }) {
-                    Icon(Icons.Rounded.Edit, contentDescription = "Localized description")
+                    Icon(Icons.Filled.Edit, contentDescription = "Localized description")
                 }
             }
         }
