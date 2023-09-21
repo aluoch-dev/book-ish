@@ -12,6 +12,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.bookish.app.ui.content.ContentScreen
 import com.bookish.app.ui.elements.BottomBarNavigation
+import com.bookish.app.ui.elements.TopBar
 import com.bookish.app.ui.home.HomeScreen
 import com.bookish.app.ui.theme.screenModifier
 
@@ -25,7 +26,8 @@ fun BookishApp() {
         val navController = rememberNavController()
 
         Scaffold(
-            bottomBar = { BottomBarNavigation()}
+            topBar = { TopBar() },
+            bottomBar = { BottomBarNavigation() }
         ) {
             Surface( modifier = Modifier.padding(it)) {
                 BookishNavHost(

@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.bookish.app.ui.theme.contentTextStyle
 import com.bookish.app.ui.theme.errorTextStyle
+import com.bookish.app.ui.theme.logoTextStyle
 import com.bookish.app.ui.theme.titleTextStyle
 
 @Composable
@@ -46,3 +47,14 @@ fun ContentText(
         style = contentTextStyle()
     )
 }
+
+@Composable
+fun LogoText(
+    text: String
+) {
+    Text(
+        text = text,
+        style = logoTextStyle()
+    )
+}
+

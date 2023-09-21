@@ -126,6 +126,17 @@ fun Modifier.card(): Modifier {
 }
 
 @Composable
+fun logoTextStyle(): TextStyle {
+    return TextStyle(
+        color = primaryCharcoal,
+        textAlign = TextAlign.Center,
+        fontSize = 24.sp,
+        fontFamily = nunitoFamily,
+        fontWeight = FontWeight.ExtraBold
+    )
+}
+
+@Composable
 fun titleTextStyle(): TextStyle {
     return TextStyle(
         color = primaryCharcoal,
