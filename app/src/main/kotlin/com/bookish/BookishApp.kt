@@ -13,7 +13,8 @@ import androidx.navigation.compose.rememberNavController
 import com.bookish.app.ui.content.ContentScreen
 import com.bookish.app.ui.elements.BottomBarNavigation
 import com.bookish.app.ui.elements.TopBar
-import com.bookish.app.ui.home.HomeScreen
+import com.bookish.app.ui.library.Library
+import com.bookish.app.ui.library.LibraryItem
 import com.bookish.app.ui.theme.screenModifier
 
 
@@ -36,16 +37,18 @@ fun BookishApp() {
             }
         }
     }
-
 }
 
 @Composable
 fun BookishNavHost(
     navController: NavHostController
 ) {
-    NavHost(navController = navController, startDestination = "home") {
+    NavHost(navController = navController, startDestination = "book-edit") {
         composable("home") {
-            HomeScreen()
+            Library()
+        }
+        composable("book-edit") {
+            LibraryItem()
         }
         composable("content") {
            ContentScreen()
