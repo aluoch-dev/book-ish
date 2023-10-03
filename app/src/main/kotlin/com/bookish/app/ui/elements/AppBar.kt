@@ -1,5 +1,6 @@
 package com.bookish.app.ui.elements
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -19,7 +20,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.bookish.R
 import com.bookish.app.ui.ContentText
 import com.bookish.app.ui.LogoText
 import com.bookish.app.ui.theme.contentTextStyle
@@ -124,4 +128,10 @@ fun NavigationItem(
             style = contentTextStyle()
         )
     }
+}
+
+@Composable
+@Preview(showBackground = true)
+fun PreviewTopBar() {
+    TopBar()
 }

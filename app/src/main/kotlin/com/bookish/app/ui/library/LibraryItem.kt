@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Text
@@ -16,7 +15,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.bookish.R
-import com.bookish.app.ui.TitleText
+import com.bookish.app.ui.SubTitleText
 import com.bookish.app.ui.elements.BasicButton
 
 @Composable
@@ -28,7 +27,7 @@ fun LibraryItem() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        TitleText(text = "The Little Prince")
+        SubTitleText(text = "The Little Prince")
 
         Row(
             modifier = Modifier

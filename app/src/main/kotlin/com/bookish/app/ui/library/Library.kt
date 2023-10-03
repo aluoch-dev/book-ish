@@ -22,7 +22,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.bookish.R
 import com.bookish.app.ui.DefaultSpacer
+import com.bookish.app.ui.SubTitleText
 import com.bookish.app.ui.TitleText
+import com.bookish.app.ui.elements.BasicButton
 
 @Composable
 fun Library() {
@@ -31,7 +33,9 @@ fun Library() {
             .fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        TitleText(text = "My Library")
+        TitleText(
+            text = "My Library"
+        )
         DefaultSpacer()
         Row (
             modifier = Modifier
@@ -61,6 +65,8 @@ fun Library() {
         BookItem()
         BookItem()
         BookItem()
+
+        BasicButton(text = R.string.load_more) {}
     }
 }
 

@@ -6,14 +6,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
-import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.ExperimentalTextApi
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -130,7 +126,7 @@ fun logoTextStyle(): TextStyle {
     return TextStyle(
         color = primaryCharcoal,
         textAlign = TextAlign.Center,
-        fontSize = 24.sp,
+        fontSize = 28.sp,
         fontFamily = nunitoFamily,
         fontWeight = FontWeight.ExtraBold
     )
@@ -138,6 +134,17 @@ fun logoTextStyle(): TextStyle {
 
 @Composable
 fun titleTextStyle(): TextStyle {
+    return TextStyle(
+        color = primaryCharcoal,
+        textAlign = TextAlign.Center,
+        fontSize = 20.sp,
+        fontFamily = nunitoFamily,
+        fontWeight = FontWeight(800)
+    )
+}
+
+@Composable
+fun subTitleTextStyle(): TextStyle {
     return TextStyle(
         color = primaryCharcoal,
         textAlign = TextAlign.Center,
