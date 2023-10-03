@@ -8,7 +8,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.IconButton
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
@@ -16,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.bookish.R
 import com.bookish.app.ui.DefaultSpacer
@@ -23,12 +26,36 @@ import com.bookish.app.ui.TitleText
 
 @Composable
 fun Library() {
-    Column(modifier = Modifier
-        .fillMaxWidth(),
+    Column(
+        modifier = Modifier
+            .fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         TitleText(text = "My Library")
         DefaultSpacer()
+        Row (
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            horizontalArrangement = Arrangement.SpaceAround,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Column(
+                horizontalAlignment = Alignment.Start
+            ) {
+                IconButton(onClick = { /* do something */ }) {
+                    Icon(Icons.Filled.Add, contentDescription = "Localized description")
+                }
+            }
+
+            Column(
+                horizontalAlignment = Alignment.End
+            ) {
+                IconButton(onClick = { /* do something */ }) {
+                    Icon(Icons.Filled.Settings, contentDescription = "Localized description")
+                }
+            }
+        }
         //Introduce a scrollable list once the storage is set up
         BookItem()
         BookItem()
@@ -49,7 +76,7 @@ fun BookItem() {
             .fillMaxWidth()
     ) {
         Row(
-            modifier =Modifier
+            modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
@@ -73,9 +100,11 @@ fun BookItem() {
                 }
             }
         }
-
-
-
-
     }
+}
+
+@Composable
+@Preview(showBackground = true)
+fun PreviewLibrary() {
+    Library()
 }

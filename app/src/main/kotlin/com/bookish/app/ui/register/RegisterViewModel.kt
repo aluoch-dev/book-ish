@@ -6,7 +6,6 @@ import com.bookish.app.ui.isValidPassword
 import com.bookish.app.ui.passwordMatches
 import dagger.hilt.android.lifecycle.HiltViewModel
 
-@HiltViewModel
 class RegisterViewModel {
     var uiState = mutableStateOf(RegisterUiState())
         private set
