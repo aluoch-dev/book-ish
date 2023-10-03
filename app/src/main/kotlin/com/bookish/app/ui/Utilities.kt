@@ -6,9 +6,15 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.bookish.app.ui.theme.Purple40
+import com.bookish.app.ui.theme.Purple80
+import com.bookish.app.ui.theme.PurpleGrey80
 import com.bookish.app.ui.theme.contentTextStyle
 import com.bookish.app.ui.theme.errorTextStyle
+import com.bookish.app.ui.theme.logoTextStyle
+import com.bookish.app.ui.theme.subTitleTextStyle
 import com.bookish.app.ui.theme.titleTextStyle
 
 @Composable
@@ -27,6 +33,7 @@ fun ErrorText() {
     )
 }
 
+
 @Composable
 fun TitleText(
     text: String
@@ -34,6 +41,16 @@ fun TitleText(
     Text(
         text = text,
         style = titleTextStyle()
+    )
+}
+
+@Composable
+fun SubTitleText(
+    text: String
+) {
+    Text(
+        text = text,
+        style = subTitleTextStyle()
     )
 }
 
@@ -46,3 +63,23 @@ fun ContentText(
         style = contentTextStyle()
     )
 }
+
+@Composable
+fun LogoText(
+    text: String
+) {
+    Text(
+        text = text,
+        style = logoTextStyle(),
+        color = PurpleGrey80
+    )
+}
+
+@Composable
+@Preview(showBackground = true)
+fun PreviewLogoText() {
+    LogoText(
+        text = "Book-ish"
+    )
+}
+

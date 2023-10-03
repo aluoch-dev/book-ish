@@ -4,6 +4,7 @@ import androidx.compose.runtime.mutableStateOf
 import com.bookish.app.ui.isValidEmail
 import com.bookish.app.ui.isValidPassword
 import com.bookish.app.ui.passwordMatches
+import dagger.hilt.android.lifecycle.HiltViewModel
 
 class RegisterViewModel {
     var uiState = mutableStateOf(RegisterUiState())
