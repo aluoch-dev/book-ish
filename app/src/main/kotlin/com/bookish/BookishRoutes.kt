@@ -1,5 +1,8 @@
 package com.bookish
 
-const val REGISTER_SCREEN = "RegisterScreen"
-const val LOGIN_SCREEN = "LoginScreen"
-const val CONTENT_SCREEN = "ContentScreen"
+const val LOGIN = "login"
+const val REGISTER = "register"
+const val HOME = "home"
+const val LIBRARY = "library"
+const val UPDATE_LIBRARY = "updateLibrary"
+const val EDIT_LIBRARY_ITEM = "editLibraryItem"
