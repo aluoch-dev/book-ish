@@ -65,4 +65,7 @@
     <string name="add_quote">Add Quote</string>
     <string name="load_more">Load More</string>
     <string name="register_account">Create account to continue using the application.</string>
+    <string name="your_content_page">"Find all your content organized here. "</string>
+    <string name="my_content">My Book Content</string>
+    <string name="all_settings_here">All settings here</string>
 </resources>

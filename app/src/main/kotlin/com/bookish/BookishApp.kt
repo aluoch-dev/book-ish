@@ -19,8 +19,10 @@ import com.bookish.app.ui.library.Library
 import com.bookish.app.ui.library.LibraryItem
 import com.bookish.app.ui.login.LoginScreen
 import com.bookish.app.ui.login.LoginViewModel
+import com.bookish.app.ui.personal.Personal
 import com.bookish.app.ui.register.RegisterScreen
 import com.bookish.app.ui.register.RegisterViewModel
+import com.bookish.app.ui.settings.Settings
 import com.bookish.app.ui.theme.scaffoldModifier
 import com.bookish.app.ui.theme.screenModifier
 
@@ -34,7 +36,13 @@ fun BookishApp() {
 
         Scaffold(
             topBar = { TopBar() },
-            bottomBar = { BottomBarNavigation() }
+            bottomBar = {
+                BottomBarNavigation(
+                    navigateToLibrary = { appState.navigate(LIBRARY) },
+                    navigateToPersonal = { appState.navigate(PERSONAL) },
+                    navigateToSettings = { appState.navigate(SETTINGS)}
+                )
+            }
         ) {
             Surface(
                 modifier = scaffoldModifier()
@@ -83,7 +91,13 @@ fun NavGraphBuilder.bookishGraph(appState: BookishAppState) {
     composable(EDIT_LIBRARY_ITEM) {
         LibraryItem()
     }
+    composable(PERSONAL) {
+        Personal()
+    }
 
+    composable(SETTINGS) {
+        Settings()
+    }
 }
 
 
