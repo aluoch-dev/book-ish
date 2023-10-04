@@ -59,9 +59,11 @@ fun NavGraphBuilder.bookishGraph(appState: BookishAppState) {
         LoginScreen()
     }
     composable(HOME) {
-        Library()
+        Library(
+            onNavigateToBookItem = { appState.navigate(EDIT_LIBRARY_ITEM)}
+        )
     }
-    composable("book-edit") {
+    composable(EDIT_LIBRARY_ITEM) {
         LibraryItem()
     }
     composable(LIBRARY) {

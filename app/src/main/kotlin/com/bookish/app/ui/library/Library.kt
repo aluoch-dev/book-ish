@@ -27,7 +27,9 @@ import com.bookish.app.ui.TitleText
 import com.bookish.app.ui.elements.BasicButton
 
 @Composable
-fun Library() {
+fun Library(
+    onNavigateToBookItem: () -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxWidth(),
@@ -61,17 +63,19 @@ fun Library() {
             }
         }
         //Introduce a scrollable list once the storage is set up
-        BookItem()
-        BookItem()
-        BookItem()
-        BookItem()
+        BookItem(onNavigateToBookItem)
+        BookItem(onNavigateToBookItem)
+        BookItem(onNavigateToBookItem)
+        BookItem(onNavigateToBookItem)
 
         BasicButton(text = R.string.load_more) {}
     }
 }
 
 @Composable
-fun BookItem() {
+fun BookItem(
+    onNavigateToBookItem: () -> Unit
+) {
     var bookImage = R.drawable.book_cover
     ElevatedCard(
         elevation = CardDefaults.cardElevation(
@@ -101,7 +105,7 @@ fun BookItem() {
             Column(
                 horizontalAlignment = Alignment.End
             ) {
-                IconButton(onClick = { /* do something */ }) {
+                IconButton(onClick = onNavigateToBookItem ) {
                     Icon(Icons.Filled.Edit, contentDescription = "Localized description")
                 }
             }
@@ -112,5 +116,5 @@ fun BookItem() {
 @Composable
 @Preview(showBackground = true)
 fun PreviewLibrary() {
-    Library()
+    Library {}
 }
