@@ -37,7 +37,9 @@ class RegisterViewModel {
             return
         } else {
 
-        //proceed with registration
+        //proceed with registration then
+        // navigate to Library page
+
         }
 
     }

@@ -18,6 +18,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.bookish.R
 import com.bookish.app.ui.DefaultSpacer
 import com.bookish.app.ui.ErrorText
+import com.bookish.app.ui.SubTitleText
+import com.bookish.app.ui.TitleText
 import com.bookish.app.ui.elements.BasicButton
 import com.bookish.app.ui.elements.ConfirmPasswordField
 import com.bookish.app.ui.elements.PasswordField
@@ -29,8 +31,6 @@ fun RegisterScreen(
 ) {
     val uiState by viewModel.uiState
 
-    Text(text = stringResource(R.string.register))
-
     Column (
         modifier = Modifier
             .padding(16.dp)
@@ -40,6 +40,10 @@ fun RegisterScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
+        TitleText(text = stringResource(id = R.string.register))
+        DefaultSpacer()
+        SubTitleText(text =stringResource(R.string.register_account) )
+        DefaultSpacer()
         EmailField(uiState.email, viewModel::onEmailChange)
         DefaultSpacer()
         PasswordField(uiState.password, R.string.password, viewModel::onPasswordChange)

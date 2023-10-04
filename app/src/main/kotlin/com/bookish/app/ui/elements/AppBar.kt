@@ -73,7 +73,11 @@ fun TopBar() {
     }
 }
 @Composable
-fun BottomBarNavigation() {
+fun BottomBarNavigation(
+    navigateToLibrary: () -> Unit,
+    navigateToPersonal: () -> Unit,
+    navigateToSettings: () -> Unit,
+) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -84,23 +88,21 @@ fun BottomBarNavigation() {
         NavigationItem(
             icon = Icons.Default.Home,
             iconDescription = "Library icon",
-            action = "Library"
-        ) {}
-        NavigationItem(
-            icon = Icons.Default.Add,
-            iconDescription = "Post content icon",
-            action = "Post"
-        ) {}
+            action = "Library",
+            onClick = navigateToLibrary
+        )
         NavigationItem(
             icon = Icons.Default.Person,
-            iconDescription = "Settings Icon",
-            action = "Personal"
-        ) {}
+            iconDescription = "Personal Icon",
+            action = "Personal",
+            onClick = navigateToPersonal
+        )
         NavigationItem(
             icon = Icons.Default.Settings,
             iconDescription = "Settings Icon",
-            action = "Settings"
-        ) {}
+            action = "Settings",
+            onClick = navigateToSettings
+        )
     }
 }
 
