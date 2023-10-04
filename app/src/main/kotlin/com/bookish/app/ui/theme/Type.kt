@@ -71,7 +71,7 @@ fun inputFieldTextStyle(): TextStyle {
 @Composable
 fun linkTextStyle(): TextStyle {
     return TextStyle(
-        color = Color.Cyan,
+        color = PurpleGrey80,
         textAlign = TextAlign.Center,
         fontSize = 16.sp,
         fontFamily = nunitoFamily,
@@ -103,6 +103,13 @@ fun screenModifier(): Modifier {
     return Modifier
         .fillMaxWidth()
         .fillMaxHeight()
+}
+
+fun scaffoldModifier(): Modifier {
+    return Modifier
+        .fillMaxWidth()
+        .fillMaxHeight()
+        .padding(64.dp)
 }
 
 fun basicButtonModifier() : Modifier {

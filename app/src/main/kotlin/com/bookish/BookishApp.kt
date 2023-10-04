@@ -18,6 +18,10 @@ import com.bookish.app.ui.elements.TopBar
 import com.bookish.app.ui.library.Library
 import com.bookish.app.ui.library.LibraryItem
 import com.bookish.app.ui.login.LoginScreen
+import com.bookish.app.ui.login.LoginViewModel
+import com.bookish.app.ui.register.RegisterScreen
+import com.bookish.app.ui.register.RegisterViewModel
+import com.bookish.app.ui.theme.scaffoldModifier
 import com.bookish.app.ui.theme.screenModifier
 
 @Composable
@@ -32,10 +36,12 @@ fun BookishApp() {
             topBar = { TopBar() },
             bottomBar = { BottomBarNavigation() }
         ) {
-            Surface( modifier = Modifier.padding(it)) {
+            Surface(
+                modifier = scaffoldModifier()
+                    .padding(it)) {
                 NavHost(
                     navController = appState.navController,
-                    startDestination = HOME,
+                    startDestination = LOGIN,
                     builder = { bookishGraph(appState)}
                 )
             }
@@ -56,9 +62,20 @@ fun rememberAppState(
 
 fun NavGraphBuilder.bookishGraph(appState: BookishAppState) {
     composable(LOGIN) {
-        LoginScreen()
+        LoginScreen(
+            viewModel = LoginViewModel(),
+            navigateToRegister = { appState.navigate(REGISTER) },
+            navigateToLibrary = { appState.navigate(LIBRARY) }
+        )
     }
-    composable(HOME) {
+
+    composable(REGISTER) {
+        RegisterScreen(
+            viewModel = RegisterViewModel()
+        )
+    }
+
+    composable(LIBRARY) {
         Library(
             onNavigateToBookItem = { appState.navigate(EDIT_LIBRARY_ITEM)}
         )
