@@ -83,9 +83,6 @@ fun NavGraphBuilder.bookishGraph(appState: BookishAppState) {
     composable(EDIT_LIBRARY_ITEM) {
         LibraryItem()
     }
-    composable(LIBRARY) {
-        ContentScreen()
-    }
 
 }
 
