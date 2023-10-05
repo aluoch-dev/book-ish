@@ -19,6 +19,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.bookish.R
 import com.bookish.app.ui.DefaultSpacer
 import com.bookish.app.ui.ErrorText
@@ -33,7 +34,7 @@ import com.bookish.app.ui.theme.linkTextStyle
 fun LoginScreen(
     navigateToRegister: (Int) -> Unit,
     navigateToLibrary: () -> Unit,
-    viewModel: LoginViewModel
+    viewModel: LoginViewModel = hiltViewModel()
 ) {
 
     val uiState by viewModel.uiState

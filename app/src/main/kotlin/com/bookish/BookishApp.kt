@@ -71,16 +71,13 @@ fun rememberAppState(
 fun NavGraphBuilder.bookishGraph(appState: BookishAppState) {
     composable(LOGIN) {
         LoginScreen(
-            viewModel = LoginViewModel(),
             navigateToRegister = { appState.navigate(REGISTER) },
             navigateToLibrary = { appState.navigate(LIBRARY) }
         )
     }
 
     composable(REGISTER) {
-        RegisterScreen(
-            viewModel = RegisterViewModel()
-        )
+        RegisterScreen()
     }
 
     composable(LIBRARY) {

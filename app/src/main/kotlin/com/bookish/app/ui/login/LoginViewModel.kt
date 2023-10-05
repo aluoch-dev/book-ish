@@ -1,8 +1,12 @@
 package com.bookish.app.ui.login
 
 import androidx.compose.runtime.mutableStateOf
+import com.bookish.BookishViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class LoginViewModel {
+@HiltViewModel
+class LoginViewModel @Inject constructor(): BookishViewModel() {
 
     var uiState = mutableStateOf(LoginUiState())
         private set

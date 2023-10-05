@@ -5,4 +5,4 @@ import android.content.res.Configuration
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
-class BookishApplication : Application()
+class BookishApplication : Application() {}

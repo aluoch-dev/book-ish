@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.ViewModel
 import com.bookish.R
 import com.bookish.app.ui.DefaultSpacer
 import com.bookish.app.ui.ErrorText
@@ -27,7 +28,7 @@ import com.bookish.app.ui.elements.EmailField
 
 @Composable
 fun RegisterScreen(
-    viewModel: RegisterViewModel
+    viewModel: RegisterViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState
 

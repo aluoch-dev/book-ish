@@ -1,12 +1,15 @@
 package com.bookish.app.ui.register
 
 import androidx.compose.runtime.mutableStateOf
+import com.bookish.BookishViewModel
 import com.bookish.app.ui.isValidEmail
 import com.bookish.app.ui.isValidPassword
 import com.bookish.app.ui.passwordMatches
 import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class RegisterViewModel {
+@HiltViewModel
+class RegisterViewModel @Inject constructor(): BookishViewModel() {
     var uiState = mutableStateOf(RegisterUiState())
         private set
 
