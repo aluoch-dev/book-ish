@@ -1,16 +1,16 @@
 package com.bookish.model.service
 
+import com.bookish.model.User
+import kotlinx.coroutines.flow.Flow
+
 interface AccountService {
 
-   fun authenticate(
-       email: String,
-       password: String,
-       onResult: (Throwable?) -> Unit
-   )
+    val currentUserId: String
+    val hasUser: Boolean
 
-   fun linkAccount(
-       email: String,
-       password: String,
-       onResult: (Throwable?) -> Unit
-   )
+    val currentUser: Flow<User>
+
+   suspend fun authenticate(email: String, password: String)
+
+   suspend fun linkAccount(email: String, password: String)
 }
