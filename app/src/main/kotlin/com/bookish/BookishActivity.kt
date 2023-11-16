@@ -14,9 +14,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.view.WindowCompat
 import com.bookish.BookishApp
-import com.bookish.app.ui.theme.BookishTheme
-import com.bookish.app.ui.theme.primaryCharcoal
-import com.bookish.app.ui.theme.screenModifier
+import com.bookish.ui.theme.BookishTheme
+import com.bookish.ui.theme.primaryCharcoal
+import com.bookish.ui.theme.screenModifier
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -9,16 +9,16 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.bookish.app.ui.elements.BottomBarNavigation
-import com.bookish.app.ui.elements.TopBar
-import com.bookish.app.ui.library.Library
-import com.bookish.app.ui.library.LibraryItem
-import com.bookish.app.ui.login.LoginScreen
-import com.bookish.app.ui.personal.Personal
-import com.bookish.app.ui.register.RegisterScreen
-import com.bookish.app.ui.settings.Settings
-import com.bookish.app.ui.theme.scaffoldModifier
-import com.bookish.app.ui.theme.screenModifier
+import com.bookish.ui.elements.BottomBarNavigation
+import com.bookish.ui.elements.TopBar
+import com.bookish.screens.library.Library
+import com.bookish.screens.library.LibraryItem
+import com.bookish.screens.login.LoginScreen
+import com.bookish.screens.personal.Personal
+import com.bookish.screens.register.RegisterScreen
+import com.bookish.screens.settings.Settings
+import com.bookish.ui.theme.scaffoldModifier
+import com.bookish.ui.theme.screenModifier
 
 
 @Composable
