@@ -26,6 +26,7 @@ import com.bookish.ui.elements.EmailField
 
 @Composable
 fun RegisterScreen(
+    onRegisterSuccess: () -> Unit,
     viewModel: RegisterViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState
@@ -53,6 +54,6 @@ fun RegisterScreen(
             ErrorText()
             DefaultSpacer()
         }
-        BasicButton(text = R.string.register) { viewModel.onClickRegister() }
+        BasicButton(text = R.string.register) { viewModel.onClickRegister(onRegisterSuccess) }
     }
 }

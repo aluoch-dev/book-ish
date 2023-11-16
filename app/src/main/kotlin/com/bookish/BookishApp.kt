@@ -72,7 +72,9 @@ fun NavGraphBuilder.bookishGraph(appState: BookishAppState) {
     }
 
     composable(REGISTER) {
-        RegisterScreen()
+        RegisterScreen(
+            onRegisterSuccess = { appState.navigate(LIBRARY) }
+        )
     }
 
     composable(LIBRARY) {

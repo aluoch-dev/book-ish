@@ -2,6 +2,8 @@ package com.bookish.screens.register
 
 import androidx.compose.runtime.mutableStateOf
 import com.bookish.BookishViewModel
+import com.bookish.REGISTER
+import com.bookish.SETTINGS
 import com.bookish.model.service.AccountService
 import com.bookish.utils.isValidEmail
 import com.bookish.utils.isValidPassword
@@ -38,7 +40,7 @@ class RegisterViewModel @Inject constructor(
         uiState.value = uiState.value.copy(confirmPassword = newValue)
     }
 
-    fun onClickRegister() {
+    fun onClickRegister(onRegisterSuccess: () -> Unit) {
         if (!email.isValidEmail() || !password.isValidPassword() || !password.passwordMatches(uiState.value.confirmPassword)) {
            uiState.value.isError = true
             return
@@ -46,6 +48,7 @@ class RegisterViewModel @Inject constructor(
 
            launchCatching {
                accountService.linkAccount(email, password)
+              onRegisterSuccess()
            }
         }
     }
