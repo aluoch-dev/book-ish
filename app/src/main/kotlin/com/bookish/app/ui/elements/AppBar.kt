@@ -1,6 +1,7 @@
 package com.bookish.app.ui.elements
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -25,7 +26,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.bookish.R
 import com.bookish.app.ui.ContentText
+import com.bookish.app.ui.DefaultSpacer
 import com.bookish.app.ui.LogoText
+import com.bookish.app.ui.SmallSpacer
 import com.bookish.app.ui.theme.contentTextStyle
 
 @Composable
@@ -115,16 +118,16 @@ fun NavigationItem(
 ) {
     Row(
         modifier = Modifier
-            .padding(8.dp),
+            .padding(8.dp)
+            .clickable { onClick() },
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        IconButton(onClick = onClick) {
-            Icon(
-                imageVector = icon,
-                contentDescription = iconDescription
-            )
-        }
+        Icon(
+            imageVector = icon,
+            contentDescription = iconDescription
+        )
+        SmallSpacer()
         Text(
             text = action,
             style = contentTextStyle()
