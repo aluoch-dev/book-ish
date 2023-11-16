@@ -2,7 +2,7 @@ package com.bookish.screens.content
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.bookish.app.domain.model.Content
+import com.bookish.model.Content
 
 class ContentViewModel {
 
@@ -11,10 +11,5 @@ class ContentViewModel {
     val contentData: LiveData<Content>
         get() = _contentData
 
-    fun loadContentData(contentId: String) {
-        val content = Content (
-            title = "The Young Prince",
-            text = "I absolutely loved this books. I wished itw as longer."
-        )
-    }
+
 }
