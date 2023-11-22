@@ -44,7 +44,7 @@ fun BookishApp() {
                     .padding(it)) {
                 NavHost(
                     navController = appState.navController,
-                    startDestination = LOGIN,
+                    startDestination = LIBRARY,
                     builder = { bookishGraph(appState)}
                 )
             }
