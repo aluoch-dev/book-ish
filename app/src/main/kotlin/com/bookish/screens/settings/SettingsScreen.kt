@@ -32,7 +32,7 @@ import com.bookish.ui.elements.DialogConfirmButton
 import com.bookish.ui.elements.RegularCardEditor
 import com.bookish.ui.theme.BookishTheme
 import com.bookish.ui.theme.card
-import com.bookish.utils.DefaultSpacer
+import com.bookish.utils.DefaultFullWidthSpacer
 
 @ExperimentalMaterialApi
 @Composable
@@ -71,7 +71,7 @@ fun SettingsScreenContent(
     ) {
         BasicToolbar(title = R.string.settings)
 
-       DefaultSpacer()
+       DefaultFullWidthSpacer()
 
         if (uiState.isAnonymousAccount) {
             RegularCardEditor(R.string.sign_in, Icons.Default.Settings, "", Modifier.card()) {

@@ -16,9 +16,16 @@ import com.bookish.ui.theme.subTitleTextStyle
 import com.bookish.ui.theme.titleTextStyle
 
 @Composable
-fun DefaultSpacer() {
+fun DefaultFullWidthSpacer() {
     Spacer(modifier = Modifier
         .fillMaxWidth()
+        .padding(16.dp)
+    )
+}
+
+@Composable
+fun DefaultSpacer() {
+    Spacer(modifier = Modifier
         .padding(16.dp)
     )
 }

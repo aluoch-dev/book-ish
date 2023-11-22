@@ -16,7 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.bookish.R
-import com.bookish.utils.DefaultSpacer
+import com.bookish.utils.DefaultFullWidthSpacer
 import com.bookish.utils.ErrorText
 import com.bookish.utils.SubTitleText
 import com.bookish.utils.TitleText
@@ -43,22 +43,22 @@ fun LoginScreen(
         verticalArrangement = Arrangement.Center
     ) {
         TitleText(text = stringResource(id = R.string.login))
-        DefaultSpacer()
+        DefaultFullWidthSpacer()
         SubTitleText(text =stringResource(R.string.welcome_again) )
-        DefaultSpacer()
+        DefaultFullWidthSpacer()
         EmailField(uiState.email, viewModel::onEmailChange)
-        DefaultSpacer()
+        DefaultFullWidthSpacer()
         PasswordField(uiState.password, R.string.password, viewModel::onPasswordChange)
-        DefaultSpacer()
+        DefaultFullWidthSpacer()
         if(uiState.isError) {
             ErrorText()
-            DefaultSpacer()
+            DefaultFullWidthSpacer()
         }
         BasicButton(
             text = R.string.login,
             onClick = navigateToLibrary
         )
-        DefaultSpacer()
+        DefaultFullWidthSpacer()
         ClickableText(
             text = AnnotatedString("Not yet registered? Create an account here"),
             style = linkTextStyle(),

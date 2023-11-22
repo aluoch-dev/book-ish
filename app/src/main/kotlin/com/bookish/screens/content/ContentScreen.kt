@@ -10,7 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.bookish.utils.ContentText
-import com.bookish.utils.DefaultSpacer
+import com.bookish.utils.DefaultFullWidthSpacer
 import com.bookish.utils.SubTitleText
 import com.bookish.ui.theme.contentBoxModifier
 
@@ -40,7 +40,7 @@ fun ContentItem(
             verticalArrangement = Arrangement.Top
         ) {
             SubTitleText(text = title)
-            DefaultSpacer()
+            DefaultFullWidthSpacer()
             ContentText(text = text)
         }
     }
