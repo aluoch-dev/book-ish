@@ -16,7 +16,7 @@ import com.bookish.screens.library.LibraryItem
 import com.bookish.screens.login.LoginScreen
 import com.bookish.screens.personal.Personal
 import com.bookish.screens.register.RegisterScreen
-import com.bookish.screens.settings.Settings
+import com.bookish.screens.settings.SettingsScreen
 import com.bookish.ui.theme.scaffoldModifier
 import com.bookish.ui.theme.screenModifier
 
@@ -63,6 +63,7 @@ fun rememberAppState(
 
 
 
+@OptIn(ExperimentalMaterialApi::class)
 fun NavGraphBuilder.bookishGraph(appState: BookishAppState) {
     composable(LOGIN) {
         LoginScreen(
@@ -90,7 +91,10 @@ fun NavGraphBuilder.bookishGraph(appState: BookishAppState) {
     }
 
     composable(SETTINGS) {
-        Settings()
+        SettingsScreen(
+            restartApp = { route -> appState.clearAndNavigate(route) },
+            openScreen = { route -> appState.navigate(route) }
+        )
     }
 }
 

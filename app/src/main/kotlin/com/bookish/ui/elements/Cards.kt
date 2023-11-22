@@ -1,6 +1,7 @@
 package com.bookish.ui.elements
 
 
+import android.annotation.SuppressLint
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.*
@@ -19,6 +20,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -27,7 +29,7 @@ import com.bookish.ui.theme.dropdownSelector
 @Composable
 fun DangerCardEditor(
     @StringRes title: Int,
-    @DrawableRes icon: Int,
+    @SuppressLint("SupportAnnotationUsage") @DrawableRes icon: ImageVector,
     content: String,
     modifier: Modifier,
     onEditClick: () -> Unit
@@ -39,7 +41,7 @@ fun DangerCardEditor(
 @Composable
 fun RegularCardEditor(
     @StringRes title: Int,
-    @DrawableRes icon: Int,
+    @SuppressLint("SupportAnnotationUsage") @DrawableRes icon: ImageVector,
     content: String,
     modifier: Modifier,
     onEditClick: () -> Unit
@@ -51,7 +53,7 @@ fun RegularCardEditor(
 @Composable
 private fun CardEditor(
     @StringRes title: Int,
-    @DrawableRes icon: Int,
+    @SuppressLint("SupportAnnotationUsage") @DrawableRes icon: ImageVector,
     content: String,
     onEditClick: () -> Unit,
     highlightColor: Color,
@@ -73,7 +75,7 @@ private fun CardEditor(
                 Text(text = content, modifier = Modifier.padding(16.dp, 0.dp))
             }
 
-            Icon(painter = painterResource(icon), contentDescription = "Icon", tint = highlightColor)
+            Icon(imageVector = icon, contentDescription = "Icon", tint = highlightColor)
         }
     }
 }

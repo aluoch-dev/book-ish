@@ -11,6 +11,19 @@ class SettingsViewModel @Inject constructor(
     private val accountService: AccountService
 ):BookishViewModel() {
 
-    val uiState = accountService.currentUser.map { SettingsUiState(it.isAnonymous) }
+    val uiState = accountService.currentUser.map {
+        SettingsUiState(it.isAnonymous)
+    }
 
+    fun onLoginClick(openScreen: (String) -> Unit) {}
+    fun onSignUpClick(openScreen: (String) -> Unit) {
+
+    }
+    fun onSignOutClick(restartApp: (String) -> Unit) {
+
+    }
+
+    fun onDeleteMyAccountClick(restartApp: (String) -> Unit) {
+
+    }
 }

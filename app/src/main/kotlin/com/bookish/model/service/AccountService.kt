@@ -10,7 +10,10 @@ interface AccountService {
 
     val currentUser: Flow<User>
 
-    fun createAnonymousAccount(onResult: (Throwable?) -> Unit)
-    fun authenticate(email: String, password: String,onResult: (Throwable?) -> Unit)
-    fun linkAccount(email: String, password: String,onResult: (Throwable?) -> Unit)
+    suspend fun authenticate(email: String, password: String)
+    suspend fun sendRecoveryEmail(email: String)
+    suspend fun createAnonymousAccount()
+    suspend fun linkAccount(email: String, password: String)
+    suspend fun deleteAccount()
+    suspend fun signOut()
 }

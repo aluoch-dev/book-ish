@@ -4,7 +4,6 @@ import com.bookish.model.User
 import com.bookish.model.service.AccountService
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.perf.ktx.trace
 import kotlinx.coroutines.channels.awaitClose
@@ -15,7 +14,8 @@ import javax.inject.Inject
 
 class AccountServiceImpl @Inject constructor(private val auth: FirebaseAuth): AccountService {
 
-    override val currentUserId:  String
+
+    override val currentUserId: String
         get() = auth.currentUser?.uid.orEmpty()
 
     override val hasUser: Boolean
@@ -25,27 +25,42 @@ class AccountServiceImpl @Inject constructor(private val auth: FirebaseAuth): Ac
         get() = callbackFlow {
             val listener =
                 FirebaseAuth.AuthStateListener { auth ->
-                    this.trySend(auth.currentUser?.let { User(it.uid) } ?: User())
+                    this.trySend(auth.currentUser?.let { User(it.uid, isAnonymous = it.isAnonymous) } ?: User())
                 }
             auth.addAuthStateListener(listener)
             awaitClose { auth.removeAuthStateListener(listener) }
         }
 
-    override fun createAnonymousAccount(onResult: (Throwable?) -> Unit) {
-        Firebase.auth.signInAnonymously()
-            .addOnCompleteListener { onResult(it.exception) }
+    override suspend fun authenticate(email: String, password: String) {
+        auth.signInWithEmailAndPassword(email, password).await()
     }
 
-    override fun authenticate(email: String, password: String, onResult: (Throwable?) -> Unit) {
-        Firebase.auth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener { onResult(it.exception) }
+    override suspend fun sendRecoveryEmail(email: String) {
+        auth.sendPasswordResetEmail(email).await()
     }
 
-    override fun linkAccount(email: String, password: String, onResult: (Throwable?) -> Unit) {
-        val credential = EmailAuthProvider.getCredential(email, password)
+    override suspend fun createAnonymousAccount() {
+        auth.signInAnonymously().await()
+    }
 
-        Firebase.auth.currentUser!!.linkWithCredential(credential)
-            .addOnCompleteListener { onResult(it.exception) }
+    override suspend fun linkAccount(email: String, password: String): Unit =
+        trace(LINK_ACCOUNT_TRACE) {
+            val credential = EmailAuthProvider.getCredential(email, password)
+            auth.currentUser!!.linkWithCredential(credential).await()
+        }
+
+    override suspend fun deleteAccount() {
+        auth.currentUser!!.delete().await()
+    }
+
+    override suspend fun signOut() {
+        if (auth.currentUser!!.isAnonymous) {
+            auth.currentUser!!.delete()
+        }
+        auth.signOut()
+
+        // Sign the user back in anonymously.
+        createAnonymousAccount()
     }
 
     companion object {

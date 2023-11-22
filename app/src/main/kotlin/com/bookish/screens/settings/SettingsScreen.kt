@@ -1,7 +1,6 @@
 package com.bookish.screens.settings
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.rememberScrollState
@@ -9,6 +8,11 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.AlertDialog
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.ExitToApp
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -20,7 +24,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.bookish.R
+import com.bookish.ui.elements.BasicToolbar
+import com.bookish.ui.elements.DangerCardEditor
+import com.bookish.ui.elements.DialogCancelButton
+import com.bookish.ui.elements.DialogConfirmButton
+import com.bookish.ui.elements.RegularCardEditor
 import com.bookish.ui.theme.BookishTheme
+import com.bookish.ui.theme.card
+import com.bookish.utils.DefaultSpacer
 
 @ExperimentalMaterialApi
 @Composable
@@ -57,16 +69,16 @@ fun SettingsScreenContent(
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        BasicToolbar(AppText.settings)
+        BasicToolbar(title = R.string.settings)
 
-        Spacer(modifier = Modifier.spacer())
+       DefaultSpacer()
 
         if (uiState.isAnonymousAccount) {
-            RegularCardEditor(AppText.sign_in, AppIcon.ic_sign_in, "", Modifier.card()) {
+            RegularCardEditor(R.string.sign_in, Icons.Default.Settings, "", Modifier.card()) {
                 onLoginClick()
             }
 
-            RegularCardEditor(AppText.create_account, AppIcon.ic_create_account, "", Modifier.card()) {
+            RegularCardEditor(R.string.create_account, Icons.Default.Add, "", Modifier.card()) {
                 onSignUpClick()
             }
         } else {
@@ -81,17 +93,17 @@ fun SettingsScreenContent(
 private fun SignOutCard(signOut: () -> Unit) {
     var showWarningDialog by remember { mutableStateOf(false) }
 
-    RegularCardEditor(AppText.sign_out, AppIcon.ic_exit, "", Modifier.card()) {
+    RegularCardEditor(R.string.sign_out, Icons.Default.ExitToApp, "", Modifier.card()) {
         showWarningDialog = true
     }
 
     if (showWarningDialog) {
         AlertDialog(
-            title = { Text(stringResource(AppText.sign_out_title)) },
-            text = { Text(stringResource(AppText.sign_out_description)) },
-            dismissButton = { DialogCancelButton(AppText.cancel) { showWarningDialog = false } },
+            title = { Text(stringResource(R.string.sign_out_title)) },
+            text = { Text(stringResource(R.string.sign_out_description)) },
+            dismissButton = { DialogCancelButton(R.string.cancel) { showWarningDialog = false } },
             confirmButton = {
-                DialogConfirmButton(AppText.sign_out) {
+                DialogConfirmButton(R.string.sign_out) {
                     signOut()
                     showWarningDialog = false
                 }
@@ -106,9 +118,9 @@ private fun SignOutCard(signOut: () -> Unit) {
 private fun DeleteMyAccountCard(deleteMyAccount: () -> Unit) {
     var showWarningDialog by remember { mutableStateOf(false) }
 
-    DangerousCardEditor(
-        AppText.delete_my_account,
-        AppIcon.ic_delete_my_account,
+    DangerCardEditor(
+        R.string.delete_my_account,
+        Icons.Default.Delete,
         "",
         Modifier.card()
     ) {
@@ -117,11 +129,11 @@ private fun DeleteMyAccountCard(deleteMyAccount: () -> Unit) {
 
     if (showWarningDialog) {
         AlertDialog(
-            title = { Text(stringResource(AppText.delete_account_title)) },
-            text = { Text(stringResource(AppText.delete_account_description)) },
-            dismissButton = { DialogCancelButton(AppText.cancel) { showWarningDialog = false } },
+            title = { Text(stringResource(R.string.delete_account_title)) },
+            text = { Text(stringResource(R.string.delete_account_description)) },
+            dismissButton = { DialogCancelButton(R.string.cancel) { showWarningDialog = false } },
             confirmButton = {
-                DialogConfirmButton(AppText.delete_my_account) {
+                DialogConfirmButton(R.string.delete_my_account) {
                     deleteMyAccount()
                     showWarningDialog = false
                 }

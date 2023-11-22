@@ -1,5 +1,5 @@
 package com.bookish.screens.settings
 
-data class SettingsUiState(
-    val isAnonymous: Boolean = true
-)
+
+data class SettingsUiState(val isAnonymousAccount: Boolean = true)
+
