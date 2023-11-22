@@ -1,5 +1,6 @@
 package com.bookish.screens.personal
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -16,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.bookish.R
 import com.bookish.ui.theme.Purple80
 import com.bookish.ui.theme.contentTextStyle
@@ -27,7 +29,9 @@ import com.bookish.utils.SmallSpacer
 import com.bookish.utils.TitleText
 
 @Composable
-fun Personal() {
+fun Personal(
+    viewModel: PersonalViewModel = hiltViewModel()
+) {
     Column(
         modifier = Modifier
             .fillMaxWidth(),
@@ -46,22 +50,22 @@ fun Personal() {
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                BookItem(title = "The Young Prince and other Stories", quotesCount = "12",author = "Lawrence G.")
+                BookItem(title = "The Young Prince and other Stories", quotesCount = "12",author = "Lawrence G.", onClick = viewModel::onClickBook )
                 DefaultSpacer()
-                BookItem(title = " The Way of Woman" , quotesCount ="15",author = "Lawrence G." )
+                BookItem(title = " The Way of Woman" , quotesCount ="15",author = "Lawrence G.", onClick = viewModel::onClickBook )
             }
             DefaultFullWidthSpacer()
 
             Row {
-                BookItem(title = "The Young Prince and other Stories", quotesCount = "12",author = "Lawrence G.")
+                BookItem(title = "The Young Prince and other Stories", quotesCount = "12",author = "Lawrence G.", onClick = viewModel::onClickBook)
                 DefaultSpacer()
-                BookItem(title = " The Way of Woman" , quotesCount ="15",author = "Lawrence G." )
+                BookItem(title = " The Way of Woman" , quotesCount ="15",author = "Lawrence G.", onClick = viewModel::onClickBook )
             }
             DefaultFullWidthSpacer()
             Row {
-                BookItem(title = "The Young Prince and other Stories", quotesCount = "12",author = "Lawrence G.")
+                BookItem(title = "The Young Prince and other Stories", quotesCount = "12",author = "Lawrence G.", onClick = viewModel::onClickBook)
                 DefaultSpacer()
-                BookItem(title = " The Way of Woman" , quotesCount ="15",author = "Lawrence G." )
+                BookItem(title = " The Way of Woman" , quotesCount ="15",author = "Lawrence G.", onClick = viewModel::onClickBook )
             }
         }
     }
@@ -71,11 +75,13 @@ fun Personal() {
 fun BookItem(
     title: String,
     quotesCount: String,
-    author: String
+    author: String,
+    onClick: () -> Unit
 ) {
     Card (
         modifier = Modifier
-            .size(160.dp, 240.dp),
+            .size(160.dp, 240.dp)
+            .clickable { onClick },
         backgroundColor = Purple80
     ){
         Column (
@@ -120,7 +126,8 @@ private fun PreviewBookItem() {
     BookItem(
         title = "The Young Prince and other stories",
         quotesCount = "**30**",
-        author = "Lawrence G."
+        author = "Lawrence G.",
+        onClick={}
     )
 }
 
