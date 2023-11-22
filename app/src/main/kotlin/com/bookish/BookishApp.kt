@@ -9,6 +9,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.bookish.screens.favourites.FavouritesScreen
 import com.bookish.ui.elements.BottomBarNavigation
 import com.bookish.ui.elements.TopBar
 import com.bookish.screens.library.Library
@@ -16,7 +17,7 @@ import com.bookish.screens.library.LibraryItem
 import com.bookish.screens.login.LoginScreen
 import com.bookish.screens.personal.Personal
 import com.bookish.screens.register.RegisterScreen
-import com.bookish.screens.settings.Settings
+import com.bookish.screens.settings.SettingsScreen
 import com.bookish.ui.theme.scaffoldModifier
 import com.bookish.ui.theme.screenModifier
 
@@ -35,7 +36,8 @@ fun BookishApp() {
                 BottomBarNavigation(
                     navigateToLibrary = { appState.navigate(LIBRARY) },
                     navigateToPersonal = { appState.navigate(PERSONAL) },
-                    navigateToSettings = { appState.navigate(SETTINGS)}
+                    navigateToSettings = { appState.navigate(SETTINGS) },
+                    navigateToFavorites = { appState.navigate(FAVOURITES)}
                 )
             }
         ) {
@@ -44,7 +46,7 @@ fun BookishApp() {
                     .padding(it)) {
                 NavHost(
                     navController = appState.navController,
-                    startDestination = LOGIN,
+                    startDestination = LIBRARY,
                     builder = { bookishGraph(appState)}
                 )
             }
@@ -63,6 +65,7 @@ fun rememberAppState(
 
 
 
+@OptIn(ExperimentalMaterialApi::class)
 fun NavGraphBuilder.bookishGraph(appState: BookishAppState) {
     composable(LOGIN) {
         LoginScreen(
@@ -72,7 +75,9 @@ fun NavGraphBuilder.bookishGraph(appState: BookishAppState) {
     }
 
     composable(REGISTER) {
-        RegisterScreen()
+        RegisterScreen(
+            onRegisterSuccess = { appState.navigate(LIBRARY) }
+        )
     }
 
     composable(LIBRARY) {
@@ -87,8 +92,15 @@ fun NavGraphBuilder.bookishGraph(appState: BookishAppState) {
         Personal()
     }
 
+    composable(FAVOURITES) {
+        FavouritesScreen()
+    }
+
     composable(SETTINGS) {
-        Settings()
+        SettingsScreen(
+            restartApp = { appState.clearAndNavigate(LOGIN) },
+            openScreen = { appState.navigate(REGISTER) }
+        )
     }
 }
 

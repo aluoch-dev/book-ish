@@ -21,7 +21,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.bookish.R
-import com.bookish.utils.DefaultSpacer
+import com.bookish.utils.DefaultFullWidthSpacer
 import com.bookish.utils.TitleText
 import com.bookish.ui.elements.BasicButton
 
@@ -37,7 +37,7 @@ fun Library(
         TitleText(
             text = "My Library"
         )
-        DefaultSpacer()
+        DefaultFullWidthSpacer()
         Row (
             modifier = Modifier
                 .fillMaxWidth()

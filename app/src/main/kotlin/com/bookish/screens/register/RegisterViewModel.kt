@@ -2,6 +2,9 @@ package com.bookish.screens.register
 
 import androidx.compose.runtime.mutableStateOf
 import com.bookish.BookishViewModel
+import com.bookish.REGISTER
+import com.bookish.SETTINGS
+import com.bookish.model.service.AccountService
 import com.bookish.utils.isValidEmail
 import com.bookish.utils.isValidPassword
 import com.bookish.utils.passwordMatches
@@ -9,7 +12,10 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class RegisterViewModel @Inject constructor(): BookishViewModel() {
+class RegisterViewModel @Inject constructor(
+    private val accountService: AccountService
+): BookishViewModel() {
+
     var uiState = mutableStateOf(RegisterUiState())
         private set
 
@@ -34,16 +40,16 @@ class RegisterViewModel @Inject constructor(): BookishViewModel() {
         uiState.value = uiState.value.copy(confirmPassword = newValue)
     }
 
-    fun onClickRegister() {
+    fun onClickRegister(onRegisterSuccess: () -> Unit) {
         if (!email.isValidEmail() || !password.isValidPassword() || !password.passwordMatches(uiState.value.confirmPassword)) {
            uiState.value.isError = true
             return
         } else {
 
-        //proceed with registration then
-        // navigate to Library page
-
+           launchCatching {
+               accountService.linkAccount(email, password)
+              onRegisterSuccess()
+           }
         }
-
     }
 }

@@ -15,7 +15,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.bookish.R
-import com.bookish.utils.DefaultSpacer
+import com.bookish.utils.DefaultFullWidthSpacer
 import com.bookish.utils.ErrorText
 import com.bookish.utils.SubTitleText
 import com.bookish.utils.TitleText
@@ -26,6 +26,7 @@ import com.bookish.ui.elements.EmailField
 
 @Composable
 fun RegisterScreen(
+    onRegisterSuccess: () -> Unit,
     viewModel: RegisterViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState
@@ -40,19 +41,19 @@ fun RegisterScreen(
         verticalArrangement = Arrangement.Center
     ) {
         TitleText(text = stringResource(id = R.string.register))
-        DefaultSpacer()
+        DefaultFullWidthSpacer()
         SubTitleText(text =stringResource(R.string.register_account) )
-        DefaultSpacer()
+        DefaultFullWidthSpacer()
         EmailField(uiState.email, viewModel::onEmailChange)
-        DefaultSpacer()
+        DefaultFullWidthSpacer()
         PasswordField(uiState.password, R.string.password, viewModel::onPasswordChange)
-        DefaultSpacer()
+        DefaultFullWidthSpacer()
         ConfirmPasswordField(uiState.confirmPassword, viewModel::onConfirmPasswordChange)
-        DefaultSpacer()
+        DefaultFullWidthSpacer()
         if(uiState.isError) {
             ErrorText()
-            DefaultSpacer()
+            DefaultFullWidthSpacer()
         }
-        BasicButton(text = R.string.register) { viewModel.onClickRegister() }
+        BasicButton(text = R.string.register) { viewModel.onClickRegister(onRegisterSuccess) }
     }
 }
