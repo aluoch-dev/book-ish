@@ -24,7 +24,7 @@ fun DefaultSpacer() {
 }
 
 @Composable
-fun SmallHorizontalSpacer() {
+fun SmallSpacer() {
     Spacer(modifier = Modifier
         .padding(8.dp)
     )

@@ -9,10 +9,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.rounded.Info
 import androidx.compose.material3.Icon
@@ -27,7 +25,7 @@ import androidx.compose.ui.unit.dp
 import com.bookish.ui.theme.contentTextStyle
 import com.bookish.utils.ContentText
 import com.bookish.utils.LogoText
-import com.bookish.utils.SmallHorizontalSpacer
+import com.bookish.utils.SmallSpacer
 
 @Composable
 fun TopBar() {
@@ -132,7 +130,7 @@ fun NavigationItem(
             imageVector = icon,
             contentDescription = iconDescription
         )
-        SmallHorizontalSpacer()
+        SmallSpacer()
         Text(
             text = action,
             style = contentTextStyle()
