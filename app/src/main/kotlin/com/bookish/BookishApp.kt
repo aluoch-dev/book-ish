@@ -9,6 +9,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.bookish.screens.favourites.FavouritesScreen
 import com.bookish.ui.elements.BottomBarNavigation
 import com.bookish.ui.elements.TopBar
 import com.bookish.screens.library.Library
@@ -35,7 +36,8 @@ fun BookishApp() {
                 BottomBarNavigation(
                     navigateToLibrary = { appState.navigate(LIBRARY) },
                     navigateToPersonal = { appState.navigate(PERSONAL) },
-                    navigateToSettings = { appState.navigate(SETTINGS)}
+                    navigateToSettings = { appState.navigate(SETTINGS) },
+                    navigateToFavorites = { appState.navigate(FAVOURITES)}
                 )
             }
         ) {
@@ -90,10 +92,14 @@ fun NavGraphBuilder.bookishGraph(appState: BookishAppState) {
         Personal()
     }
 
+    composable(FAVOURITES) {
+        FavouritesScreen()
+    }
+
     composable(SETTINGS) {
         SettingsScreen(
-            restartApp = { route -> appState.clearAndNavigate(route) },
-            openScreen = { route -> appState.navigate(route) }
+            restartApp = { appState.clearAndNavigate(LOGIN) },
+            openScreen = { appState.navigate(REGISTER) }
         )
     }
 }

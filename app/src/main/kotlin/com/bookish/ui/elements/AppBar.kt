@@ -7,7 +7,10 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Face
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Settings
@@ -75,6 +78,7 @@ fun BottomBarNavigation(
     navigateToLibrary: () -> Unit,
     navigateToPersonal: () -> Unit,
     navigateToSettings: () -> Unit,
+    navigateToFavorites: () -> Unit
 ) {
     Row(
         modifier = Modifier
@@ -84,16 +88,22 @@ fun BottomBarNavigation(
         verticalAlignment = Alignment.CenterVertically
     ) {
         NavigationItem(
-            icon = Icons.Default.Home,
+            icon = Icons.Default.Face,
             iconDescription = "Library icon",
             action = "Library",
+            onClick = navigateToPersonal
+        )
+        NavigationItem(
+            icon = Icons.Default.List,
+            iconDescription = "List Icon",
+            action = "Timeline",
             onClick = navigateToLibrary
         )
         NavigationItem(
-            icon = Icons.Default.Person,
-            iconDescription = "Personal Icon",
-            action = "Personal",
-            onClick = navigateToPersonal
+            icon = Icons.Default.Favorite,
+            iconDescription = "Favorite Icon",
+            action = "Favourites",
+            onClick = navigateToFavorites
         )
         NavigationItem(
             icon = Icons.Default.Settings,
